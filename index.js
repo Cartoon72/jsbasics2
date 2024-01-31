@@ -8,6 +8,14 @@ let messageEl = document.getElementById("message-el")
 let SumEl = document.getElementById("sum-el")
 let cardsEl = document.getElementById("cards-el")
 
+let player = {
+    name: "Tejas",
+    chips: 145
+}
+
+let playerEl = document.getElementById("player-el")
+playerEl.textContent = player.name + ": $" + player.chips
+
 function startGame(){
     isalive = true
     let firstCard = getRandomCard()
@@ -36,11 +44,14 @@ function renderGame(){
     messageEl.textContent = message
 }
 
-function newCard(){
- let newCard = getRandomCard()
- sum += newCard
- cards.push(newCard)
- renderGame( )
+function newCard(){ 
+    if(isalive===true && hasBJ===false){
+        let newCard = getRandomCard()
+        sum += newCard
+        cards.push(newCard)
+        renderGame( )
+    }
+ 
 }
 
 
